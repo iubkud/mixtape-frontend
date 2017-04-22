@@ -9,6 +9,8 @@ import auth from './auth'
 
 auth.check_auth()
 
+Vue.http.headers.common['Authorization'] = localStorage.getItem('auth_token')
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

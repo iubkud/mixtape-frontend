@@ -41,7 +41,7 @@ export default {
         password: this.credentials.password
       }
 
-      auth.login(this, credentials, '/hello')
+      auth.login(this, credentials, '/home')
     }
   }
 }
