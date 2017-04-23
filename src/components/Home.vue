@@ -12,8 +12,8 @@
       <p>{{ error }}</p>
     </div>
 
-    <div class="button is-link">
-      <a @click="logout()">Log Out</a>
+    <div>
+      <router-link :to="{ name: 'Search' }" class="button">Search</router-link><a class="button is-link" @click="logout()">Log Out</a>
     </div>
   </div>
 </template>

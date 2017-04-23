@@ -1,16 +1,28 @@
 <template>
   <div class="login">
     <h1>Log in to mixtape</h1>
-    <div>
-      <label for="email">Email </label>
-      <input type="text" name="email" id="email" v-model="credentials.email"/>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" type="email" placeholder="Email" v-model="credentials.email">
+        <span class="icon is-small is-left">
+          <i class="fa fa-envelope"></i>
+        </span>
+      </p>
     </div>
-    <div>
-      <label for="password">Password </label>
-      <input type="password" name="password" id="password" v-model="credentials.password"/>
+
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" type="password" placeholder="Password" v-model="credentials.password">
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </p>
     </div>
-    <div>
-      <button @click="submit()">Log in</button>
+
+    <div class="field">
+      <p class="control">
+        <button class="button is-success" @click="submit()">Log in</button>
+      </p>
     </div>
 
     <div v-if="error">
@@ -46,24 +58,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-</style>
