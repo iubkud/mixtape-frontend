@@ -31,9 +31,22 @@
 
     <div class="content songs" v-if="songs">
       <h1>Songs</h1>
+      <h2>Check to add to 
+        <span class="field">
+          <span class="control">
+            <span class="select">
+              <select>
+                <option v-for="playlist in playlists" :value="playlist.id">
+                  {{ playlist.title }}
+                </option>
+              </select>
+            </span>
+          </span>
+        </span>
+      </h2>
       <ul>
         <li v-for="song in songs">
-          {{ song.name }}
+          {{ song.name }} ({{ song.artists[0].name }})
         </li>
       </ul>
     </div>
@@ -47,14 +60,15 @@ export default {
       searchTerm: '',
       artists: '',
       songs: '',
-      albums: ''
+      albums: '',
+      playlists: []
     }
   },
   methods: {
     search () {
       var searchTerm = this.searchTerm
       this.$http.post('search', {term: searchTerm}).then(response => {
-        Object.assign(this.$data, this.$options.data())
+        this.clearPriorSearch()
         if (Object.keys(response.data.artists).length !== 0) {
           this.artists = response.data.artists
         }
@@ -67,7 +81,22 @@ export default {
       }, response => {
         console.log(response.data)
       })
+    },
+    getPlaylists () {
+      this.$http.get('playlists').then(response => {
+        this.playlists = response.data
+      }, response => {
+        this.error = response.data.message
+      })
+    },
+    clearPriorSearch () {
+      this.artists = ''
+      this.songs = ''
+      this.albums = ''
     }
+  },
+  mounted () {
+    this.getPlaylists()
   }
 }
 </script>
