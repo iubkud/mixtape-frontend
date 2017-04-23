@@ -11,10 +11,15 @@
     <div v-if="error">
       <p>{{ error }}</p>
     </div>
+
+    <div class="button is-link">
+      <a @click="logout()">Log Out</a>
+    </div>
   </div>
 </template>
 
 <script>
+import auth from '../auth'
 export default {
   name: 'home',
   data () {
@@ -30,6 +35,10 @@ export default {
       }, response => {
         this.error = response.data.message
       })
+    },
+    logout () {
+      auth.logout()
+      this.$router.push('login')
     }
   },
   mounted () {
