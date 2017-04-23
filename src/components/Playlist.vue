@@ -21,14 +21,14 @@ export default {
   },
   methods: {
     getSongsInPlaylist () {
-      this.$http.get('http://localhost:3000/playlists/' + this.$route.params.id + '/songs').then(response => {
+      this.$http.get('playlists/' + this.$route.params.id + '/songs').then(response => {
         this.songs = response.data
       }, response => {
         console.log(response.data)
       })
     },
     getPlaylist () {
-      this.$http.get('http://localhost:3000/playlists/' + this.$route.params.id).then(response => {
+      this.$http.get('playlists/' + this.$route.params.id).then(response => {
         this.playlist = response.data
       }, response => {
         console.log(response.data)

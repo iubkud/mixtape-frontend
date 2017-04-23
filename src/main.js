@@ -13,6 +13,8 @@ Vue.http.headers.common['Authorization'] = localStorage.getItem('auth_token')
 
 Vue.config.productionTip = false
 
+Vue.http.options.root = 'http://localhost:3000/'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

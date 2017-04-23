@@ -25,9 +25,8 @@ export default {
   },
   methods: {
     getPlaylists () {
-      this.$http.get('http://localhost:3000/playlists').then(response => {
+      this.$http.get('playlists').then(response => {
         this.playlists = response.data
-        console.log(this.playlists)
       }, response => {
         this.error = response.data.message
       })
