@@ -4,6 +4,7 @@ import Hello from '@/components/Hello'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
 import Playlist from '@/components/Playlist'
+import Search from '@/components/Search'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       name: 'Playlist',
       component: Playlist,
       props: true
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: Search
     }
   ]
 })
