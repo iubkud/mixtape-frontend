@@ -4,7 +4,7 @@
 
     <ul class="playlists">
       <li v-for="p in playlists">
-        {{ p.title }}
+        <router-link :to="{ name: 'Playlist', params: { playlist_id: p.id } }">{{ p.title }}</router-link>
       </li>
     </ul>
 
