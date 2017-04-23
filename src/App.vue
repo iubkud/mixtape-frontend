@@ -1,6 +1,15 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <div class="container">
+      <router-view></router-view>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+        <b>Mixtape</b> is a work in progress
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
