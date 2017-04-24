@@ -48,6 +48,14 @@ export default {
     }
   },
 
+  isUserLoggedIn () {
+    if (localStorage.getItem('auth_token') !== '') {
+      return true
+    } else {
+      return false
+    }
+  },
+
   getAuthHeader () {
     return {
       'Authorization': localStorage.getItem('auth_token')

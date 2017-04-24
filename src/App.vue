@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <div class="container">
+    <Navbar></Navbar>
+    <div class="container add-margin">
       <router-view></router-view>
     </div>
     <div class="footer">
@@ -14,7 +15,11 @@
 </template>
 
 <script>
+import Navbar from './components/Navbar'
 export default {
+  components: {
+    Navbar
+  },
   name: 'app'
 }
 </script>
@@ -26,5 +31,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin: 25px 0;
+}
+.add-margin {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 </style>
